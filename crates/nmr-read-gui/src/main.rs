@@ -1,5 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+#[cfg(not(target_arch = "wasm32"))]
 use nmr_read_gui::NmrReadApp;
 
 #[cfg(not(target_arch = "wasm32"))]
@@ -19,4 +20,6 @@ fn main() -> eframe::Result<()> {
 }
 
 #[cfg(target_arch = "wasm32")]
-fn main() {}
+fn main() {
+    let _ = nmr_read_gui::start_wasm();
+}
