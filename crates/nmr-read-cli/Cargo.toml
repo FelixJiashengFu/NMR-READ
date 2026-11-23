@@ -1,0 +1,18 @@
+[package]
+name = "nmr-read-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "nmr-read"
+path = "src/main.rs"
+
+[dependencies]
+nmr-core = { path = "../nmr-core" }
+nmr-io = { path = "../nmr-io" }
+nmr-dsp = { path = "../nmr-dsp" }
+clap.workspace = true
+serde_json.workspace = true

@@ -1,0 +1,33 @@
+[package]
+name = "nmr-read-gui"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "nmr-read-gui"
+path = "src/main.rs"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+nmr-core = { path = "../nmr-core" }
+nmr-io = { path = "../nmr-io" }
+nmr-dsp = { path = "../nmr-dsp" }
+num-complex.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+eframe.workspace = true
+egui.workspace = true
+egui_plot.workspace = true
+egui-snarl.workspace = true
+rfd.workspace = true
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+web-sys = { version = "0.3", features = ["Document", "Window", "HtmlCanvasElement", "Blob", "BlobPropertyBag", "Url", "HtmlAnchorElement", "Performance"] }
